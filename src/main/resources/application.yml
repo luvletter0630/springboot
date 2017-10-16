@@ -1,0 +1,8 @@
+server:
+ # 指定服务器端口号
+ port: 8081
+spring:
+ thymeleaf:
+ # 禁止浏览器缓存
+ cache: false
+ mode: HTML5

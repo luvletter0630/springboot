@@ -1,8 +1,13 @@
 server:
- # 指定服务器端口号
- port: 8081
+    # 指定服务器端口号
+    port: 8081
 spring:
- thymeleaf:
- # 禁止浏览器缓存
- cache: false
- mode: HTML5
+    thymeleaf:
+      # 禁止浏览器缓存
+      cache: false
+      mode: HTML5
+    datasource:
+      driverClassName: com.mysql.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/springboot?useUnicode=true&characterEncoding=utf8
+      username: root
+      password: mysql

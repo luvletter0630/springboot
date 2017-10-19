@@ -3,8 +3,8 @@ package org.springboot.entity;
 /**
  * Created by Intellij IDEA.
  *
- * @Author LUOLIANG
- * @Date 2016/8/2
+ * @Author Liwj
+ * @Date 2017/10/19
  * @Comment
  */
 public class User {

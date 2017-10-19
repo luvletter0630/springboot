@@ -6,6 +6,8 @@ import org.springboot.service.UserSevrvice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * Created by 76164 on 2017/10/18.
  */
@@ -19,7 +21,7 @@ public class UserServiceImpl implements UserSevrvice{
      * 查询用户信息
      */
     @Override
-    public User queryUser() {
+    public List<User> queryUser() {
         return userDao.queryUser();
     }
 }

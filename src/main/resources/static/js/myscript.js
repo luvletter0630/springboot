@@ -15,7 +15,7 @@ var viewmodel = avalon.define({
     request: function () {
         $.ajax({
             type: "post",
-            url: "/hello/data",    //向springboot请求数据的url
+            url: "/hello/query",    //向springboot请求数据的url
             data: {},
             success: function (data) {
                 $('button').removeClass("btn-primary").addClass("btn-success").attr('disabled', true);

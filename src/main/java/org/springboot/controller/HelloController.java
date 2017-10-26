@@ -1,13 +1,11 @@
 package org.springboot.controller;
 
 import org.springboot.entity.User;
-import org.springboot.service.UserSevrvice;
+import org.springboot.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -23,17 +21,22 @@ public class HelloController {
     public String index(ModelMap modelMap) {
         modelMap.put("msg", "SpringBoot Ajax 示例");
 
-        return "index1";
+        return "index";
     }
 
     @Autowired
-    private UserSevrvice userSevrvice;
+    private UserService userSevrvice;
 
-    @RequestMapping(value = "/query",method = RequestMethod.POST)
+    @RequestMapping(value = "/query/{id}",method = RequestMethod.POST)
     @ResponseBody
-    public List<User> queryUser(){
-        List<User> userList = this.userSevrvice.queryUser();
+    public List<User> queryUser(@PathVariable("id") int id){
+        List<User> userList = this.userSevrvice.queryUser(id);
         return userList;
     }
 
+    @RequestMapping(value = "/insert",method = RequestMethod.POST)
+    public boolean insertUser(@RequestBody User user){
+        boolean result = this.userSevrvice.insertUsert(user);
+        return result;
+    }
 }

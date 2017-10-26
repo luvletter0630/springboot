@@ -8,9 +8,12 @@
 <body ms-controller="viewmodel">
 <h1 th:text="${msg}">Hello World</h1>
 <button type="button" class="btn btn-primary" style="margin: 10px;" ms-click="@request">{{@text}}</button>
+<button type="button" class="btn btn-primary" style="margin: 10px;" ms-click="@insert">{{@insertText}}</button>
+<button type="button" class="btn btn-primary" style="margin: 10px;" ms-click="@delete">{{@deleteText}}</button>
 <table class="table table-striped">
     <thead>
     <tr>
+        <td><input type="checkbox" id="checkAll" /></td>
         <td class="active" >id</td>
         <td class="success" >姓名</td>
         <td class="warning" >性别</td>
@@ -20,6 +23,7 @@
     </thead>
     <tbody>
     <tr ms-for="el in @datalist">
+        <td><input type="checkbox" name="user"/></td>
         <td >{{el.id}}</td>
         <td >{{el.name}}</td>
         <td>{{el.sex}}</td>
@@ -33,4 +37,11 @@
 <script th:src="@{/js/avalon.js}"></script>
 <script th:src="@{/js/bootstrap.min.js}"></script>
 <script th:src="@{/js/myscript.js}"></script>
+<script>$(function () {
+    $("#checkAll").click(
+        function () {
+            $("input[name='user']:checkbox").prop("checked", this.checked);
+        });
+});
+</script>
 </html>
